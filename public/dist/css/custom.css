@@ -1,0 +1,408 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.btn {
+    letter-spacing: normal;
+    font-size: 14px;
+}
+.modal .btn-close {
+    content: 'A';
+}
+.section {
+    position: static;
+}
+
+table.t1 tr td {
+    border-top: 1px solid #e3e3e3;
+}
+
+.card.card-statistic-1 .card-header h4, .card.card-statistic-2 .card-header h4 {
+    letter-spacing: normal;
+}
+.w_50 {width: 50px!important;}
+.w_100 {width: 100px!important;}
+.w_150 {width: 150px!important;}
+.w_200 {width: 200px!important;}
+.w_300 {width: 300px!important;}
+.w_400 {width: 400px!important;}
+.w_450 {width: 450px!important;}
+.w_100_p {width: 100%!important;}
+
+.h_100 {height: 100px!important;}
+.h_150 {height: 150px!important;}
+.h_200 {height: 200px!important;}
+.h_300 {height: 300px!important;}
+.h_350 {height: 350px!important;}
+.h_400 {height: 400px!important;}
+
+.fz_20 {font-size: 20px!important;}
+.fz_30 {font-size: 30px!important;}
+.fz_40 {font-size: 40px!important;}
+.fz_50 {font-size: 50px!important;}
+
+.c1 {
+    color: #6777ef;
+}
+
+.hide {
+    display: none;
+}
+
+.obfc1 {
+    object-fit: cover;
+    height: 200px;
+}
+.video-iframe-container iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.bdb1 {border-bottom: 1px solid #d3d3d3;}
+
+table tr td {
+    border-bottom: 1px solid #e3e3e3 !important;
+    vertical-align: middle!important;
+}
+.table.table-bordered td, .table.table-bordered th {
+    border-color: #e3e3e3!important;
+}
+
+.sec-title {
+    font-size: 16px;
+    font-weight: 600;
+    background: #eaeaea;
+    padding: 8px 20px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.section .section-header .btn {
+    font-size: 14px!important;
+}
+.main-sidebar .sidebar-brand {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+.main-sidebar .sidebar-brand a {
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 18px;
+    font-weight: 600;
+}
+.main-sidebar .sidebar-menu li a {
+    letter-spacing: normal;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+}
+.main-sidebar .sidebar-menu li a i {
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a {
+    padding-left: 46px;
+    font-size: 14px;
+}
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a i {
+    width: 18px;
+    margin-right: 0;
+}
+.main-sidebar .sidebar-menu li a.has-dropdown:after {
+    top: 55%;
+}
+.main-sidebar .sidebar-menu li.active a,
+.main-sidebar .sidebar-menu li ul.dropdown-menu li.active > a {
+    font-weight: 400;
+}
+
+.card.card-statistic-1 .card-header h4 {
+    font-size: 16px;
+}
+table img {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.dataTables_wrapper {
+    font-size: 14px!important;
+}
+thead tr th {
+    border-top: 1px solid #ddd!important;
+}
+/* thead tr th:last-child {
+    width: 120px;
+} */
+.border-box {
+    border: 1px solid #d7d7d7!important;
+}
+.container-login {
+    margin-top: 100px!important;
+}
+.card-header-auth {
+    display: block!important;
+    border-bottom-color: #fff!important;
+    margin-top: 15px!important;
+    padding-bottom: 10px!important;
+    min-height: 0!important;
+}
+.card-header-auth h4 {
+    font-size: 20px!important;
+}
+.card-body-auth {
+    padding: 10px 20px!important;
+}
+.card-body-auth button {
+    font-size: 14px!important;
+}
+.note-editor {
+    margin-bottom: 0;
+}
+.form-control, .input-group-text,
+.custom-select,
+.custom-file-label,
+.select2-container .select2-selection--multiple,
+.select2-container .select2-selection--single,
+.note-editor.note-frame {
+    border-color: #d7d7d7!important;
+}
+.card .card-header {
+    border-bottom-color: #ebebeb;
+}
+.custom-switch {
+    padding-left: 0;
+    padding-top: 10px;
+}
+#photo_preview {
+    padding-top: 5px;
+}
+#photo_preview img.thumb {
+    width: 300px;
+}
+.note-editor .note-btn {
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+}
+.navbar .navbar-brand {
+    letter-spacing: normal;
+    text-transform: none;
+}
+.card-body-auth .invalid-feedback {
+    font-size: 14px;
+}
+.form-group .control-label,
+.form-group > label {
+    font-size: 14px;
+    padding-top: 10px;
+    letter-spacing: normal;
+    color: #000;
+}
+.form-label {
+    color: #000;
+    font-weight: 600;
+}
+.toggle-container .toggle {
+    width: 96.8594px!important;
+    height: 36px!important;
+}
+.navbar .nav-link.nav-link-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+img.profile-photo {
+    width: 100%;
+    height: auto;
+}
+
+
+img.template-preview {
+    width: 100%;
+    height: 145px;
+    border-radius: 6px;
+    border: 2px solid #757575;
+}
+.funkyradio div {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.funkyradio div span {
+    font-size: 14px;
+}
+
+.funkyradio label {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+    font-weight: 400;
+    font-size: 13px;
+    color: #000;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+    display: none;
+    font-size: 14px!important;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+    position: relative;
+    line-height: 2.5em;
+    text-indent: 3.25em;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 2.5em;
+    background: #D1D3D4;
+    border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+    color: #000;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+    color: #000;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #000;
+    background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+    box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-success input[type="radio"]:checked ~ label:before,
+.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+    color: #fff;
+    background-color: #6777ef;
+}
+
+.funkyradio1 .funkyradio-success {
+    width: 25%;
+    font-size: 14px;
+    float: left;
+}
+
+.funkyradio1 div {
+    margin-bottom: 0!important;
+}
+
+
+/* Ajax Loader */
+#loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.75) url(loading.gif) no-repeat center center;
+    z-index: 10000;
+}
+
+.razorpay-payment-button {
+    box-shadow: 0 2px 6px #acb5f6;
+    background-color: #6777ef;
+    border-color: #6777ef;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 5px 10px;
+    color: #fff;
+    border-style: none;
+    border-radius: 4px;
+    width: 100%;
+}
+.razorpay-payment-button:hover {
+    background-color: #394eea!important;
+}
+
+
+.section .section-header .btn:hover,
+.section-body button[type="submit"]:hover {
+    background: #000!important;
+}
+/* table tr th:last-child {
+    width: 200px;
+} */
+table.t2 tr th:last-child {
+    width: auto!important;
+}
+
+td.social a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.invoice hr {
+    border-color: #dfdfdf;
+}
+hr.invoice-above-table {
+    display: none;
+}
+@media print {
+    .main-sidebar,
+    .navbar,
+    .section-header,
+    .print-invoice-button,
+    .section .section-title:before,
+    hr.about-print-button {
+        display:none!important;
+    }
+    .section .section-lead {
+        margin-left: 0;
+    }
+    hr.invoice-above-table {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* TinyMCE Notification Off */
+.tox .tox-notification {
+    display: none !important;
+}
