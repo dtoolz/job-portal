@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,6 @@ Route::post('/admin/reset-password-submit', [AdminLoginController::class, 'reset
 Route::middleware(['admin:admin'])->group(function() {
     Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin_home');
     Route::get('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
+    Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
+    Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
 });
