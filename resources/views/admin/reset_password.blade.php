@@ -27,28 +27,26 @@
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                                <form method="POST" action="{{ route('admin_forgot_password_submit') }}">
+                                <form method="POST" action="{{ route('admin_reset_password_submit') }}">
                                     @csrf
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <input type="hidden" name="email" value="{{ $email }}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address" value="" autofocus>
-                                        @error('email')
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" autofocus>
+                                        @error('password')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
-                                        @if(session()->get('error'))
-                                            <div class="text-danger">{{ session()->get('error') }}</div>
-                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control @error('retype_password') is-invalid @enderror" name="retype_password" placeholder="Retype Password">
+                                        @error('retype_password')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                            Send Password Reset Link
+                                            Update
                                         </button>
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <a href="{{ route('admin_login') }}">
-                                                Back to login page
-                                            </a>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
