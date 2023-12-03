@@ -411,3 +411,31 @@ hr.invoice-above-table {
 .was-validated .form-control:invalid {
     border-color: #dc3545!important;
 }
+
+.btn-block {
+    width: 100%!important;
+}
+
+.w-100-p {
+    width: 100%;
+}
+.rounded-circle-custom {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 4px;
+}
+
+.custom-tab .nav-pills .nav-link {
+    background: #d7e3f9;
+    margin-bottom: 5px;
+}
+.custom-tab .nav-pills .nav-link.active {
+    color: #fff!important;
+    background-color: #6777ef!important;
+}
+
+#example1_paginate .page-item.active .page-link {
+    color: #fff;
+}
