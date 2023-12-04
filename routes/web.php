@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//visitors frontend routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('terms-of-use', [TermsController::class, 'index'])->name('terms');
+
 
