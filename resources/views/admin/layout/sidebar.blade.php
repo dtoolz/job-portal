@@ -33,11 +33,11 @@
                 </ul>
             </li>
 
-            <li class=""><a  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Form" class="nav-link" href="form.html"><i class="fas fa-scroll"></i> <span>Form</span></a></li>
-
-            <li class=""><a  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Table" class="nav-link" href="table.html"><i class="fas fa-table"></i> <span>Table</span></a></li>
-
-            <li class=""><a  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Invoice" class="nav-link" href="invoice.html"><i class="fas fa-file-invoice"></i> <span>Invoice</span></a></li>
+            <li class="{{ Request::is('admin/why-choose/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_why_choose_item') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Why Choose Us Items">
+                    <i class="fas fa-question"></i> <span>Why Choose Us Items</span>
+                </a>
+            </li>
 
         </ul>
     </aside>
