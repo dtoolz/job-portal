@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\HomePageContent;
 use App\Models\JobCategory;
+use App\Models\Testimonial;
 use App\Models\WhyChooseItem;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,13 @@ class HomeController extends Controller
         $job_categories = JobCategory::orderBy('name', 'asc')->take(9)->get();
         $all_job_categories = JobCategory::orderBy('name','asc')->get();
         $why_choose_items = WhyChooseItem::get();
-        return view('frontend.home', compact('home_page_content_data', 'job_categories', 'all_job_categories', 'why_choose_items'));
+        $testimonials = Testimonial::get();
+        return view('frontend.home', compact(
+            'home_page_content_data',
+            'job_categories',
+            'all_job_categories',
+            'why_choose_items',
+            'testimonials'
+        ));
     }
 }

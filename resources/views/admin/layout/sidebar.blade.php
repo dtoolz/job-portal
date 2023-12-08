@@ -39,6 +39,12 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_testimonial') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Testimonials">
+                    <i class="fas fa-quote-right"></i> <span>Testimonials</span>
+                </a>
+            </li>
+
         </ul>
     </aside>
 </div>
