@@ -12,6 +12,14 @@ body {
     position: static;
 }
 
+h4.seo_section {
+    margin-top: 40px;
+    padding: 5px;
+    background: #ffcfcf;
+    color: #dc3545;
+    font-size: 16px;
+}
+
 table.t1 tr td {
     border-top: 1px solid #e3e3e3;
 }

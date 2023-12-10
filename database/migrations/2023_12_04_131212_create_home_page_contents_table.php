@@ -36,6 +36,8 @@ return new class extends Migration
             $table->text('blog_heading');
             $table->text('blog_subheading')->nullable();
             $table->text('blog_status');
+            $table->text('title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
         });
     }

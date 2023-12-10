@@ -18,7 +18,7 @@
                     id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                             <a href="{{ route('home') }}" class="nav-link"
                                 >Home</a
                             >
@@ -41,8 +41,8 @@
                         <li class="nav-item">
                             <a href="faq.html" class="nav-link">FAQ</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="blog.html" class="nav-link"
+                        <li class="nav-item {{ Request::is('blog') ||Request::is('post/*') ? 'active' : '' }}">
+                            <a href="{{ route('blog') }}" class="nav-link"
                                 >Blog</a
                             >
                         </li>

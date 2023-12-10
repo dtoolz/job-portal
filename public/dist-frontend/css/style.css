@@ -1855,3 +1855,20 @@ h4.resume {
     font-size: 22px;
     font-weight: 700;
 }
+
+/* Pagination */
+ul.pagination .active>.page-link, ul.pagination .page-link.active {
+    background-color: #46bc29;
+    border-color: #46bc29;
+}
+
+ul.pagination .page-link {
+    color: #46bc29;
+}
+ul.pagination .active>.page-link {
+    color: #fff;
+}
+
+.datepicker-dropdown {
+    z-index: 99999 !important;
+}

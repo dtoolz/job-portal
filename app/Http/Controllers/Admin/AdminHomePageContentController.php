@@ -80,11 +80,11 @@ class AdminHomePageContentController extends Controller
         $home_page_content->blog_subheading = $request->blog_subheading;
         $home_page_content->blog_status = $request->blog_status;
 
-        // $home_page_content->title = $request->title;
-        // $home_page_content->meta_description = $request->meta_description;
+        $home_page_content->title = $request->title;
+        $home_page_content->meta_description = $request->meta_description;
 
         $home_page_content->update();
 
-        return redirect()->back()->with('success', 'Data is updated successfully.');
+        return redirect()->back()->with('success', 'Updated successfully.');
      }
 }

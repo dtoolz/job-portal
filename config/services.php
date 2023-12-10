@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'share' => [
+		'key' => env('APP_SHARE_API'),
+	],
+
 ];

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBlogPageItemController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminHomePageContentController;
 use App\Http\Controllers\Admin\AdminJobCategoryController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
@@ -50,4 +52,14 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('/admin/testimonial/edit/{id}', [AdminTestimonialController::class, 'edit'])->name('admin_testimonial_edit');
     Route::post('/admin/testimonial/update/{id}', [AdminTestimonialController::class, 'update'])->name('admin_testimonial_update');
     Route::get('/admin/testimonial/delete/{id}', [AdminTestimonialController::class, 'delete'])->name('admin_testimonial_delete');
+
+    Route::get('/admin/post/index', [AdminPostController::class, 'index'])->name('admin_post');
+    Route::get('/admin/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
+    Route::post('/admin/post/store', [AdminPostController::class, 'store'])->name('admin_post_store');
+    Route::get('/admin/post/edit/{id}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
+    Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
+    Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
+
+    Route::get('/admin/blog-page', [AdminBlogPageItemController::class, 'index'])->name('admin_blog_page');
+    Route::post('/admin/blog-page/update', [AdminBlogPageItemController::class, 'update'])->name('admin_blog_page_update');
 });
