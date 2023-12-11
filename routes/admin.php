@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminHomePageContentController;
 use App\Http\Controllers\Admin\AdminJobCategoryController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminPrivacyPageController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTermPageController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
@@ -86,5 +87,9 @@ Route::middleware(['admin:admin'])->group(function() {
     //show and update terms and conditions page contents
     Route::get('/admin/term-page', [AdminTermPageController::class, 'index'])->name('admin_term_page');
     Route::post('/admin/term-page/update', [AdminTermPageController::class, 'update'])->name('admin_term_page_update');
+
+    //show and update privacy page contents
+    Route::get('/admin/privacy-page', [AdminPrivacyPageController::class, 'index'])->name('admin_privacy_page');
+    Route::post('/admin/privacy-page/update', [AdminPrivacyPageController::class, 'update'])->name('admin_privacy_page_update');
 
 });
