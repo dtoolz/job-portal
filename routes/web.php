@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\FaqController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JobCategoryController;
 use App\Http\Controllers\Frontend\PostController;
@@ -23,4 +24,5 @@ Route::get('terms-of-use', [TermsController::class, 'index'])->name('terms');
 Route::get('job-categories', [JobCategoryController::class, 'categories'])->name('job_categories');
 Route::get('blog', [PostController::class, 'index'])->name('blog');
 Route::get('post/{slug}', [PostController::class, 'detail'])->name('post');
+Route::get('faq', [FaqController::class, 'index'])->name('faq');
 

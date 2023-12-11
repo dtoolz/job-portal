@@ -1,7 +1,7 @@
 <div class="navbar-area" id="stickymenu">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
+        <a href="{{ route('home') }}" class="logo">
             <img src="{{ asset('uploads/logo0.png') }}" alt="" />
         </a>
     </div>
@@ -38,8 +38,8 @@
                                 >Pricing</a
                             >
                         </li>
-                        <li class="nav-item">
-                            <a href="faq.html" class="nav-link">FAQ</a>
+                        <li class="nav-item {{ Request::is('faq') ? 'active' : '' }}">
+                            <a href="{{ route('faq') }}" class="nav-link">FAQ</a>
                         </li>
                         <li class="nav-item {{ Request::is('blog') ||Request::is('post/*') ? 'active' : '' }}">
                             <a href="{{ route('blog') }}" class="nav-link"

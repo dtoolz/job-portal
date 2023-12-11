@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminBlogPageItemController;
+use App\Http\Controllers\Admin\AdminFaqController;
+use App\Http\Controllers\Admin\AdminFaqPageItemController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminHomePageContentController;
 use App\Http\Controllers\Admin\AdminJobCategoryController;
@@ -60,6 +62,19 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
     Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
 
+    //faq page contents
+    Route::get('/admin/faq-page', [AdminFaqPageItemController::class, 'index'])->name('admin_faq_page');
+    Route::post('/admin/faq-page/update', [AdminFaqPageItemController::class, 'update'])->name('admin_faq_page_update');
+
     Route::get('/admin/blog-page', [AdminBlogPageItemController::class, 'index'])->name('admin_blog_page');
     Route::post('/admin/blog-page/update', [AdminBlogPageItemController::class, 'update'])->name('admin_blog_page_update');
+
+    //create faq questions and sections
+    Route::get('/admin/faq/index', [AdminFaqController::class, 'index'])->name('admin_faq');
+    Route::get('/admin/faq/create', [AdminFaqController::class, 'create'])->name('admin_faq_create');
+    Route::post('/admin/faq/store', [AdminFaqController::class, 'store'])->name('admin_faq_store');
+    Route::get('/admin/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
+    Route::post('/admin/faq/update/{id}', [AdminFaqController::class, 'update'])->name('admin_faq_update');
+    Route::get('/admin/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
+
 });
