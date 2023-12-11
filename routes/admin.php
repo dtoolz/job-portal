@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminJobCategoryController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminTermPageController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
 use Illuminate\Support\Facades\Route;
@@ -31,9 +32,11 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
     Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
 
+    //create and update all headers and titles for the home page
     Route::get('/admin/home-page-content', [AdminHomePageContentController::class, 'index'])->name('admin_home_page_content');
     Route::post('/admin/home-page-content/update', [AdminHomePageContentController::class, 'update'])->name('admin_home_page_content_update');
 
+    //crud for job categories
     Route::get('/admin/job-category/index', [AdminJobCategoryController::class, 'index'])->name('admin_job_category_index');
     Route::get('/admin/job-category/create', [AdminJobCategoryController::class, 'create'])->name('admin_job_category_create');
     Route::post('/admin/job-category/store', [AdminJobCategoryController::class, 'store'])->name('admin_job_category_store');
@@ -41,6 +44,7 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::post('/admin/job-category/update/{id}', [AdminJobCategoryController::class, 'update'])->name('admin_job_category_update');
     Route::get('/admin/job-category/delete/{id}', [AdminJobCategoryController::class, 'delete'])->name('admin_job_category_delete');
 
+    //why choose us home page section contents
     Route::get('/admin/why-choose/index', [AdminWhyChooseController::class, 'index'])->name('admin_why_choose_item');
     Route::get('/admin/why-choose/create', [AdminWhyChooseController::class, 'create'])->name('admin_why_choose_item_create');
     Route::post('/admin/why-choose/store', [AdminWhyChooseController::class, 'store'])->name('admin_why_choose_item_store');
@@ -48,6 +52,7 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::post('/admin/why-choose/update/{id}', [AdminWhyChooseController::class, 'update'])->name('admin_why_choose_item_update');
     Route::get('/admin/why-choose/delete/{id}', [AdminWhyChooseController::class, 'delete'])->name('admin_why_choose_item_delete');
 
+    //crud for clients testimonials
     Route::get('/admin/testimonial/index', [AdminTestimonialController::class, 'index'])->name('admin_testimonial');
     Route::get('/admin/testimonial/create', [AdminTestimonialController::class, 'create'])->name('admin_testimonial_create');
     Route::post('/admin/testimonial/store', [AdminTestimonialController::class, 'store'])->name('admin_testimonial_store');
@@ -55,6 +60,7 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::post('/admin/testimonial/update/{id}', [AdminTestimonialController::class, 'update'])->name('admin_testimonial_update');
     Route::get('/admin/testimonial/delete/{id}', [AdminTestimonialController::class, 'delete'])->name('admin_testimonial_delete');
 
+    //crud for blog posts
     Route::get('/admin/post/index', [AdminPostController::class, 'index'])->name('admin_post');
     Route::get('/admin/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
     Route::post('/admin/post/store', [AdminPostController::class, 'store'])->name('admin_post_store');
@@ -76,5 +82,9 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('/admin/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
     Route::post('/admin/faq/update/{id}', [AdminFaqController::class, 'update'])->name('admin_faq_update');
     Route::get('/admin/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
+
+    //show and update terms and conditions page contents
+    Route::get('/admin/term-page', [AdminTermPageController::class, 'index'])->name('admin_term_page');
+    Route::post('/admin/term-page/update', [AdminTermPageController::class, 'update'])->name('admin_term_page_update');
 
 });
