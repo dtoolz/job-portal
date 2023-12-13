@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/owl.carousel.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/select2.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/select2-bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('dist-frontend/css/iziToast.min.css') }}">
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/all.css') }}" />
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/meanmenu.css') }}" />
 <link rel="stylesheet" href="{{ asset('dist-frontend/css/spacing.css') }}" />

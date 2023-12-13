@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminBlogPageItemController;
+use App\Http\Controllers\Admin\AdminContactPageController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminFaqPageItemController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -91,5 +92,9 @@ Route::middleware(['admin:admin'])->group(function() {
     //show and update privacy page contents
     Route::get('/admin/privacy-page', [AdminPrivacyPageController::class, 'index'])->name('admin_privacy_page');
     Route::post('/admin/privacy-page/update', [AdminPrivacyPageController::class, 'update'])->name('admin_privacy_page_update');
+
+    //show and update contact page contents
+    Route::get('/admin/contact-page', [AdminContactPageController::class, 'index'])->name('admin_contact_page');
+    Route::post('/admin/contact-page/update', [AdminContactPageController::class, 'update'])->name('admin_contact_page_update');
 
 });

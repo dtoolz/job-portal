@@ -18,7 +18,7 @@
 
             <li class=""><a  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Setting" class="nav-link" href="setting.html"><i class="fas fa-wrench"></i> <span>Admin Settings</span></a></li>
 
-            <li class="nav-item dropdown {{ Request::is('admin/home-page-content') || Request::is('admin/blog-page') ||Request::is('admin/faq-page') || Request::is('admin/term-page') || Request::is('admin/privacy-page') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/home-page-content') || Request::is('admin/blog-page') ||Request::is('admin/faq-page') || Request::is('admin/term-page') || Request::is('admin/privacy-page') || Request::is('admin/contact-page') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-marker"></i><span>Page Settings</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/home-page-content') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_home_page_content') }}"><i class="fas fa-home"></i> Home Page</a></li>
@@ -26,6 +26,7 @@
                     <li class="{{ Request::is('admin/faq-page') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_faq_page') }}"><i class="fas fa-question-circle"></i> FAQ</a></li>
                     <li class="{{ Request::is('admin/term-page') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_term_page') }}"><i class="fas fa-file-contract"></i> Terms of Use</a></li>
                     <li class="{{ Request::is('admin/privacy-page') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_privacy_page') }}"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li class="{{ Request::is('admin/contact-page') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_contact_page') }}"><i class="fas fa-address-book"></i> Contact</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown {{ Request::is('admin/job-category/*') ? 'active' : '' }}">
