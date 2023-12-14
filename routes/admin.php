@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminFaqPageItemController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminHomePageContentController;
 use App\Http\Controllers\Admin\AdminJobCategoryController;
+use App\Http\Controllers\Admin\AdminJobPageItemController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPrivacyPageController;
@@ -96,5 +97,9 @@ Route::middleware(['admin:admin'])->group(function() {
     //show and update contact page contents
     Route::get('/admin/contact-page', [AdminContactPageController::class, 'index'])->name('admin_contact_page');
     Route::post('/admin/contact-page/update', [AdminContactPageController::class, 'update'])->name('admin_contact_page_update');
+
+    //show and update job category page contents
+    Route::get('/admin/job-page-content', [AdminJobPageItemController::class, 'index'])->name('admin_job_page_content');
+    Route::post('/admin/job-page-content/update', [AdminJobPageItemController::class, 'update'])->name('admin_job_page_content_update');
 
 });
