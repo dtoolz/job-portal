@@ -4,5 +4,9 @@
     btn.addEventListener("click", () => {
             btn.disabled = true;
             btn.innerText = "Please wait...";
+            window.setTimeout(() => {
+            btn.innerText = "Submit"
+            btn.disabled = false;
+        }, 4000);
     });
 </script>

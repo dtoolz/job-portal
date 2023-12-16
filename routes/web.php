@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\FaqController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JobCategoryController;
 use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\PricingController;
 use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Frontend\TermsController;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,5 @@ Route::get('faq', [FaqController::class, 'index'])->name('faq');
 Route::get('privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact_submit');
+Route::get('pricing', [PricingController::class, 'index'])->name('pricing');
 

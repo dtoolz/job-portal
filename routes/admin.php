@@ -9,7 +9,9 @@ use App\Http\Controllers\Admin\AdminHomePageContentController;
 use App\Http\Controllers\Admin\AdminJobCategoryController;
 use App\Http\Controllers\Admin\AdminJobPageItemController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminPackageController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminPricingPageController;
 use App\Http\Controllers\Admin\AdminPrivacyPageController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTermPageController;
@@ -102,4 +104,15 @@ Route::middleware(['admin:admin'])->group(function() {
     Route::get('/admin/job-page-content', [AdminJobPageItemController::class, 'index'])->name('admin_job_page_content');
     Route::post('/admin/job-page-content/update', [AdminJobPageItemController::class, 'update'])->name('admin_job_page_content_update');
 
+    //admin crud for pricing packages
+    Route::get('/admin/package/index', [AdminPackageController::class, 'index'])->name('admin_package');
+    Route::get('/admin/package/create', [AdminPackageController::class, 'create'])->name('admin_package_create');
+    Route::post('/admin/package/store', [AdminPackageController::class, 'store'])->name('admin_package_store');
+    Route::get('/admin/package/edit/{id}', [AdminPackageController::class, 'edit'])->name('admin_package_edit');
+    Route::post('/admin/package/update/{id}', [AdminPackageController::class, 'update'])->name('admin_package_update');
+    Route::get('/admin/package/delete/{id}', [AdminPackageController::class, 'delete'])->name('admin_package_delete');
+
+    //show and update pricing page contents
+    Route::get('/admin/pricing-page', [AdminPricingPageController::class, 'index'])->name('admin_pricing_page');
+    Route::post('/admin/pricing-page/update', [AdminPricingPageController::class, 'update'])->name('admin_pricing_page_update');
 });
