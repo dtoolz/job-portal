@@ -27,10 +27,10 @@
                 <div class="col-md-6 right-side">
                     <ul class="right">
                         <li class="menu">
-                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                         </li>
                         <li class="menu">
-                            <a href="signup.html"><i class="fas fa-user"></i> Sign Up</a>
+                            <a href="{{ route('signup') }}"><i class="fas fa-user"></i> Sign Up</a>
                         </li>
                     </ul>
                 </div>
