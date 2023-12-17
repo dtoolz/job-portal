@@ -29,7 +29,8 @@
                 Request::is('admin/privacy-page') ||
                 Request::is('admin/contact-page') ||
                 Request::is('admin/job-page-content') ||
-                Request::is('admin/pricing-page')
+                Request::is('admin/pricing-page') ||
+                Request::is('admin/other-page')
                     ? 'active'
                     : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-marker"></i><span>Page
@@ -40,22 +41,25 @@
                     <li class="{{ Request::is('admin/blog-page') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin_blog_page') }}"><i class="fas fa-blog"></i> Blog Page</a></li>
                     <li class="{{ Request::is('admin/faq-page') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin_faq_page') }}"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            href="{{ route('admin_faq_page') }}"><i class="fas fa-question-circle"></i> FAQ Page</a></li>
                     <li class="{{ Request::is('admin/term-page') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin_term_page') }}"><i class="fas fa-file-contract"></i> Terms of Use</a>
+                            href="{{ route('admin_term_page') }}"><i class="fas fa-file-contract"></i> Terms of Use Page</a>
                     </li>
                     <li class="{{ Request::is('admin/privacy-page') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin_privacy_page') }}"><i class="fas fa-shield-alt"></i> Privacy
-                            Policy</a></li>
+                            Policy Page</a></li>
                     <li class="{{ Request::is('admin/contact-page') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin_contact_page') }}"><i class="fas fa-address-book"></i> Contact</a>
+                            href="{{ route('admin_contact_page') }}"><i class="fas fa-address-book"></i> Contact Page</a>
                     </li>
                     <li class="{{ Request::is('admin/job-page-content') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin_job_page_content') }}"><i class="fas fa-network-wired"></i> Job
                             Category Page</a></li>
                     <li class="{{ Request::is('admin/pricing-page') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin_pricing_page') }}"><i class="fas fa-money-bill-wave"></i> Pricing</a>
+                            href="{{ route('admin_pricing_page') }}"><i class="fas fa-money-bill-wave"></i> Pricing Page</a>
                     </li>
+                    <li class="{{ Request::is('admin/other-page') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_other_page') }}">
+                            <i class="far fa-list-alt"></i> Other Pages</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown {{ Request::is('admin/job-category/*') ? 'active' : '' }}">
