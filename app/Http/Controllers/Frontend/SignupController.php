@@ -8,6 +8,7 @@ use App\Mail\Sitemail;
 use App\Models\Company;
 use App\Models\OtherPageItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SignupController extends Controller
@@ -15,7 +16,12 @@ class SignupController extends Controller
     public function index()
     {
         $other_page_item = OtherPageItem::where('id',1)->first();
-        return view('frontend.signup', compact('other_page_item'));
+
+        if (Auth::guard('company')->check()) {
+            return redirect()->route('company_dashboard');
+        } else {
+            return view('frontend.signup', compact('other_page_item'));
+        }
     }
 
     public function company_signup_submit(CompanySignupSubmitRequest $request)
