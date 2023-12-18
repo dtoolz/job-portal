@@ -26,12 +26,30 @@
                 </div>
                 <div class="col-md-6 right-side">
                     <ul class="right">
-                        <li class="menu">
-                            <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                        </li>
-                        <li class="menu">
-                            <a href="{{ route('signup') }}"><i class="fas fa-user"></i> Sign Up</a>
-                        </li>
+                        @if (Auth::guard('company')->check())
+                            <li class="menu">
+                                <a class="text-success" href="{{ route('company_dashboard') }}">
+                                    <i class="fas fa-columns"></i> Dashboard
+                                </a>
+                            </li>
+                        @elseif(Auth::guard('candidate')->check())
+                            <li class="menu">
+                                <a class="text-success" href="{{ route('candidate_dashboard') }}">
+                                    <i class="fas fa-columns"></i> Dashboard
+                                </a>
+                            </li>
+                        @else
+                            <li class="menu">
+                                <a href="{{ route('login') }}">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </a>
+                            </li>
+                            <li class="menu">
+                                <a href="{{ route('signup') }}">
+                                    <i class="fas fa-user"></i> Sign Up
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

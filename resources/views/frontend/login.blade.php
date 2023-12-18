@@ -55,10 +55,10 @@
                                         <input type="password" class="form-control" name="password">
                                     </div>
                                     <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary bg-website">
+                                        <button type="submit" id="btn" class="btn btn-primary bg-website">
                                             Login
                                         </button>
-                                        <a href="{{ route('company_forgot_password') }}" class="primary-color">Forgot
+                                        <a href="{{ route('candidate_forgot_password') }}" class="primary-color">Forgot
                                             Password?</a>
                                     </div>
                                 </form>
@@ -79,7 +79,7 @@
                                         <button type="submit" id="btn" class="btn btn-primary bg-website">
                                             Login
                                         </button>
-                                        <a href="{{ route('candidate_forgot_password') }}" class="primary-color">
+                                        <a href="{{ route('company_forgot_password') }}" class="primary-color">
                                             Forgot Password?
                                         </a>
                                     </div>

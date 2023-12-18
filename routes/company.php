@@ -11,6 +11,9 @@ Route::post('company_login_submit', [LoginController::class, 'company_login_subm
 Route::post('company_signup_submit', [SignupController::class, 'company_signup_submit'])->name('company_signup_submit');
 Route::get('company_signup_verify/{token}/{email}', [SignupController::class, 'company_signup_verify'])->name('company_signup_verify');
 Route::get('forgot-password/company', [ForgotPasswordController::class, 'company_forgot_password'])->name('company_forgot_password');
+Route::post('forgot-password/company/submit', [ForgotPasswordController::class, 'company_forgot_password_submit'])->name('company_forgot_password_submit');
+Route::get('reset-password/company/{token}/{email}', [ForgotPasswordController::class, 'company_reset_password'])->name('company_reset_password');
+Route::post('reset-password/company/submit', [ForgotPasswordController::class, 'company_reset_password_submit'])->name('company_reset_password_submit');
 
 /* Company Middleware */
 Route::middleware(['company:company'])->group(function () {
