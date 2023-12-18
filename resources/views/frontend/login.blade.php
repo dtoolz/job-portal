@@ -66,7 +66,7 @@
                             <form action="#" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label for="" class="form-label">Username</label>
+                                <label for="" class="form-label">Candidate Username</label>
                                 <input type="text" class="form-control" name="username">
                             </div>
                             <div class="mb-3">
@@ -91,7 +91,7 @@
                             <form action="#" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label for="" class="form-label">Username</label>
+                                <label for="" class="form-label">Company Username</label>
                                 <input type="text" class="form-control" name="username">
                             </div>
                             <div class="mb-3">
