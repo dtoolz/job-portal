@@ -7,6 +7,6 @@
             window.setTimeout(() => {
             btn.innerText = "Submit"
             btn.disabled = false;
-        }, 4000);
+        }, 6000);
     });
 </script>
