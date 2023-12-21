@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\Company\CompanyPaymentController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -19,4 +20,10 @@ Route::post('reset-password/company/submit', [ForgotPasswordController::class, '
 Route::middleware(['company:company'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
     Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
+
+
+    Route::get('/company/make-payment', [CompanyPaymentController::class, 'make_payment'])->name('company_make_payment');
+    Route::post('/company/paypal/payment', [CompanyPaymentController::class, 'company_paypal_payment'])->name('company_paypal_payment');
+    Route::get('/company/paypal/success', [CompanyPaymentController::class, 'company_paypal_success'])->name('company_paypal_success');
+    Route::get('/company/paypal/cancel', [CompanyPaymentController::class, 'company_paypal_cancel'])->name('company_paypal_cancel');
 });
