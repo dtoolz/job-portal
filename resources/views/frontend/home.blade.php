@@ -1,7 +1,11 @@
 @extends('frontend.layout.app')
 
-@section('seo_title'){{ $home_page_content_data->title }}@endsection
-@section('seo_meta_description'){{ $home_page_content_data->meta_description }}@endsection
+@section('seo_title')
+    {{ $home_page_content_data->title }}
+@endsection
+@section('seo_meta_description')
+    {{ $home_page_content_data->meta_description }}
+@endsection
 
 @section('main_content')
     <div class="slider" style="background-image: url({{ asset('uploads/' . $home_page_content_data->background) }})">
@@ -32,27 +36,9 @@
                                                     <option value="">
                                                         {{ $home_page_content_data->job_location }}
                                                     </option>
-                                                    <option value="">
-                                                        Australia
-                                                    </option>
-                                                    <option value="">
-                                                        Bangladesh
-                                                    </option>
-                                                    <option value="">
-                                                        Canada
-                                                    </option>
-                                                    <option value="">
-                                                        China
-                                                    </option>
-                                                    <option value="">
-                                                        India
-                                                    </option>
-                                                    <option value="">
-                                                        United Kingdom
-                                                    </option>
-                                                    <option value="">
-                                                        United States
-                                                    </option>
+                                                    @foreach ($all_job_locations as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
