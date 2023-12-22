@@ -23,7 +23,12 @@ Route::middleware(['company:company'])->group(function () {
 
 
     Route::get('/company/make-payment', [CompanyPaymentController::class, 'make_payment'])->name('company_make_payment');
+
     Route::post('/company/paypal/payment', [CompanyPaymentController::class, 'company_paypal_payment'])->name('company_paypal_payment');
     Route::get('/company/paypal/success', [CompanyPaymentController::class, 'company_paypal_success'])->name('company_paypal_success');
     Route::get('/company/paypal/cancel', [CompanyPaymentController::class, 'company_paypal_cancel'])->name('company_paypal_cancel');
+
+    Route::post('/company/stripe/payment', [CompanyPaymentController::class, 'company_stripe_payment'])->name('company_stripe_payment');
+    Route::get('/company/stripe/success', [CompanyPaymentController::class, 'company_stripe_success'])->name('company_stripe_success');
+    Route::get('/company/stripe/cancel', [CompanyPaymentController::class, 'company_stripe_cancel'])->name('company_stripe_cancel');
 });

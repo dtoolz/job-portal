@@ -99,6 +99,64 @@ class CompanyPaymentController extends Controller
     {
         return redirect()->route('company_make_payment')->with('error', 'Payment is cancelled!');
     }
+    
+    public function company_stripe_payment(Request $request)
+    {
+        $single_package_data = PricingPackage::where('id',$request->package_id)->first();
 
+        \Stripe\Stripe::setApiKey(config('stripe.stripe_sk'));
+        $response = \Stripe\Checkout\Session::create([
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => 'usd',
+                        'product_data' => [
+                            'name' => $single_package_data->package_name
+                        ],
+                        'unit_amount' => $single_package_data->package_price * 100,
+                    ],
+                    'quantity' => 1,
+                ],
+            ],
+            'mode' => 'payment',
+            'success_url' => route('company_stripe_success'),
+            'cancel_url' => route('company_stripe_cancel'),
+        ]);
+
+        session()->put('package_id', $single_package_data->id);
+        session()->put('package_price', $single_package_data->package_price);
+        session()->put('package_days', $single_package_data->package_days);
+
+        return redirect()->away($response->url);      
+    }
+
+    public function company_stripe_success()
+    {
+        $data['currently_active'] = 0;
+        Order::where('company_id', Auth::guard()->user()->id)->update($data);
+
+        $obj = new Order();
+        $obj->company_id = Auth::guard()->user()->id;
+        $obj->package_id = session()->get('package_id');
+        $obj->order_no = time();
+        $obj->paid_amount = session()->get('package_price');
+        $obj->payment_method = 'Stripe';
+        $obj->start_date = date('Y-m-d');
+        $days = session()->get('package_days');
+        $obj->expire_date = date('Y-m-d', strtotime("+$days days"));
+        $obj->currently_active = 1;
+        $obj->save();
+
+        session()->forget('package_id');
+        session()->forget('package_price');
+        session()->forget('package_days');
+
+        return redirect()->route('company_make_payment')->with('success', 'Payment is successful!');
+    }
+
+    public function company_stripe_cancel()
+    {
+        return redirect()->route('company_make_payment')->with('error', 'Payment Failed!');
+    }
 
 }

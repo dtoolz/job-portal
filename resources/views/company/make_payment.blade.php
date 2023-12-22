@@ -57,7 +57,7 @@
                                 </tr>
                             </form>
                             <tr>
-                                <form action="#" method="post">
+                                <form action="{{ route('company_stripe_payment') }}" method="post">
                                     @csrf
                                     <td>
                                         <select name="package_id" class="form-control select2">
