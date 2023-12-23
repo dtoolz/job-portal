@@ -66,7 +66,8 @@
                             <i class="far fa-list-alt"></i> Other Pages</a></li>
                 </ul>
             </li>
-            <li class="nav-item dropdown {{ Request::is('admin/job-category/*') || Request::is('admin/job-location/*') ? 'active' : '' }}">
+            <li
+                class="nav-item dropdown {{ Request::is('admin/job-category/*') || Request::is('admin/job-location/*') || Request::is('admin/job-type/*') || Request::is('admin/job-experience/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-briefcase"></i><span>Job
                         Section</span></a>
                 <ul class="dropdown-menu">
@@ -76,6 +77,13 @@
                     <li class="{{ Request::is('admin/job-location/*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin_job_location_index') }}"><i class="fas fa-map-marker-alt"></i> Job
                             Location</a></li>
+                    <li class="{{ Request::is('admin/job-type/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_job_type_index') }}"><i class="fas fa-network-wired"></i>&nbsp;Job
+                            Type</a></li>
+                    <li class="{{ Request::is('admin/job-experience/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_job_experience_index') }}">
+                            <i class="fas fa-layer-group"></i> Job 
+                            Experience</a></li>
                 </ul>
             </li>
 
@@ -94,15 +102,15 @@
             </li>
 
             <li class="{{ Request::is('admin/post/*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin_post') }}" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-title="Posts">
+                <a class="nav-link" href="{{ route('admin_post') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Posts">
                     <i class="fas fa-sign"></i> <span>Posts</span>
                 </a>
             </li>
 
             <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin_faq') }}" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-title="FAQs">
+                <a class="nav-link" href="{{ route('admin_faq') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="FAQs">
                     <i class="fas fa-question-circle"></i> <span>FAQ</span>
                 </a>
             </li>
