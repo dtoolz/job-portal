@@ -102,6 +102,28 @@
                 </ul>
             </li>
 
+            <li
+                class="nav-item dropdown {{ Request::is('admin/company-location/*') ||
+                Request::is('admin/company-industry/*') ||
+                Request::is('admin/company-size/*')
+                    ? 'active'
+                    : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-building"></i><span>Company
+                        Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/company-location/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_company_location_index') }}">
+                            <i class="fas fa-map-marker-alt"></i> Company
+                            Location</a></li>
+                    <li class="{{ Request::is('admin/company-industry/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_company_industry_index') }}">
+                            <i class="fas fa-industry"></i> Company Industry</a></li>
+                    <li class="{{ Request::is('admin/company-size/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_company_size_index') }}">
+                            <i class="fas fa-users"></i> Company Size</a></li>
+                </ul>
+            </li>
+
             <li class="{{ Request::is('admin/why-choose/*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_why_choose_item') }}" data-bs-toggle="tooltip"
                     data-bs-placement="right" data-bs-title="Why Choose Us Items">

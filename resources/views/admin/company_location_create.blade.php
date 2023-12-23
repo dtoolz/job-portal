@@ -1,10 +1,10 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Create Job Location')
+@section('heading', 'Create Company Location')
 
 @section('button')
     <div>
-        <a href="{{ route('admin_job_location_index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> View All</a>
+        <a href="{{ route('admin_company_location_index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> View All</a>
     </div>
 @endsection
 
@@ -14,11 +14,12 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin_job_location_store') }}" method="post">
+                        <form action="{{ route('admin_company_location_store') }}" method="post">
                             @csrf
                             <div class="form-group mb-3">
                                 <label>Name *</label>
-                                <input type="text" class="form-control" name="name" placeholder="add job location e.g spain, france etc">
+                                <input type="text" class="form-control" name="name"
+                                    placeholder="add company location e.g spain, france etc">
                             </div>
                             <div class="form-group">
                                 <button id="btn" type="submit" class="btn btn-primary">Submit</button>
