@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyPaymentController;
+use App\Http\Controllers\Company\CompanyProfileManagementController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -30,4 +31,7 @@ Route::middleware(['company:company'])->group(function () {
     Route::post('/company/stripe/payment', [CompanyPaymentController::class, 'company_stripe_payment'])->name('company_stripe_payment');
     Route::get('/company/stripe/success', [CompanyPaymentController::class, 'company_stripe_success'])->name('company_stripe_success');
     Route::get('/company/stripe/cancel', [CompanyPaymentController::class, 'company_stripe_cancel'])->name('company_stripe_cancel');
+
+    Route::get('/company/edit-profile', [CompanyProfileManagementController::class, 'edit_profile'])->name('company_edit_profile');
+    Route::post('/company/edit-profile/update', [CompanyProfileManagementController::class, 'edit_profile_update'])->name('company_edit_profile_update');
 });
