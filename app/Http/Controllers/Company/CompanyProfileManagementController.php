@@ -10,6 +10,7 @@ use App\Models\CompanyLocation;
 use App\Models\CompanySize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class CompanyProfileManagementController extends Controller
@@ -70,6 +71,25 @@ class CompanyProfileManagementController extends Controller
         $obj->update();
 
         return redirect()->back()->with('success', 'Profile Updated Successfully.');
+    }
+
+    public function edit_password()
+    {
+        return view('company.edit_password');
+    }
+
+    public function edit_password_update(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'retype_password' => 'required|same:password'
+        ]);
+
+        $obj = Company::where('id',Auth::guard('company')->user()->id)->first();
+        $obj->password = Hash::make($request->password);
+        $obj->update();
+
+        return redirect()->back()->with('success', 'Password Updated Successfully.');
     }
 
 }

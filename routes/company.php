@@ -37,6 +37,9 @@ Route::middleware(['company:company'])->group(function () {
     Route::get('/company/edit-profile', [CompanyProfileManagementController::class, 'edit_profile'])->name('company_edit_profile');
     Route::post('/company/edit-profile/update', [CompanyProfileManagementController::class, 'edit_profile_update'])->name('company_edit_profile_update');
 
+    Route::get('/company/edit-password', [CompanyProfileManagementController::class, 'edit_password'])->name('company_edit_password');
+    Route::post('/company/edit-password/update', [CompanyProfileManagementController::class, 'edit_password_update'])->name('company_edit_password_update');
+
     Route::get('/company/photos', [CompanyPhotoController::class, 'photos'])->name('company_photos');
     Route::post('/company/photos/submit', [CompanyPhotoController::class, 'photos_submit'])->name('company_photos_submit');
     Route::get('/company/photos/delete/{id}', [CompanyPhotoController::class, 'photos_delete'])->name('company_photos_delete');
