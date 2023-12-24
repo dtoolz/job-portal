@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Candidate\CandidateAwardController;
 use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\Candidate\CandidateProfileManagementController;
+use App\Http\Controllers\Candidate\CandidateResumeController;
 use App\Http\Controllers\Candidate\CandidateWorkExperienceController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
@@ -50,5 +52,19 @@ Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/experience/edit/{id}', [CandidateWorkExperienceController::class, 'experience_edit'])->name('candidate_experience_edit');
     Route::post('/candidate/experience/update/{id}', [CandidateWorkExperienceController::class, 'experience_update'])->name('candidate_experience_update');
     Route::get('/candidate/experience/delete/{id}', [CandidateWorkExperienceController::class, 'experience_delete'])->name('candidate_experience_delete');
+
+    Route::get('/candidate/award/index', [CandidateAwardController::class, 'award'])->name('candidate_award_index');
+    Route::get('/candidate/award/create', [CandidateAwardController::class, 'award_create'])->name('candidate_award_create');
+    Route::post('/candidate/award/store', [CandidateAwardController::class, 'award_store'])->name('candidate_award_store');
+    Route::get('/candidate/award/edit/{id}', [CandidateAwardController::class, 'award_edit'])->name('candidate_award_edit');
+    Route::post('/candidate/award/update/{id}', [CandidateAwardController::class, 'award_update'])->name('candidate_award_update');
+    Route::get('/candidate/award/delete/{id}', [CandidateAwardController::class, 'award_delete'])->name('candidate_award_delete');
+
+    Route::get('/candidate/resume/index', [CandidateResumeController::class, 'resume'])->name('candidate_resume_index');
+    Route::get('/candidate/resume/create', [CandidateResumeController::class, 'resume_create'])->name('candidate_resume_create');
+    Route::post('/candidate/resume/store', [CandidateResumeController::class, 'resume_store'])->name('candidate_resume_store');
+    Route::get('/candidate/resume/edit/{id}', [CandidateResumeController::class, 'resume_edit'])->name('candidate_resume_edit');
+    Route::post('/candidate/resume/update/{id}', [CandidateResumeController::class, 'resume_update'])->name('candidate_resume_update');
+    Route::get('/candidate/resume/delete/{id}', [CandidateResumeController::class, 'resume_delete'])->name('candidate_resume_delete');
 }); 
 
