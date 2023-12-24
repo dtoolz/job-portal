@@ -8,11 +8,11 @@
     <li class="list-group-item {{ Request::is('company/orders') ? 'active' : '' }}">
         <a href="{{ route('company_orders') }}">Orders</a>
     </li>
-    <li class="list-group-item">
-        <a href="#">Create Job</a>
+    <li class="list-group-item {{ Request::is('company/create-job') ? 'active' : '' }}">
+        <a href="{{ route('company_jobs_create') }}">Create Job</a>
     </li>
-    <li class="list-group-item">
-        <a href="#">All Jobs</a>
+    <li class="list-group-item {{ Request::is('company/jobs') ? 'active' : '' }}">
+        <a href="{{ route('company_jobs') }}">All Jobs</a>
     </li>
     <li class="list-group-item {{ Request::is('company/photos') ? 'active' : '' }}">
         <a href="{{ route('company_photos') }}">Photos</a>

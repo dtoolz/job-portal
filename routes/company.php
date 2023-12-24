@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\Company\CompanyJobController;
 use App\Http\Controllers\Company\CompanyPaymentController;
 use App\Http\Controllers\Company\CompanyPhotoController;
 use App\Http\Controllers\Company\CompanyProfileManagementController;
@@ -47,4 +48,12 @@ Route::middleware(['company:company'])->group(function () {
     Route::get('/company/videos', [CompanyVideoController::class, 'videos'])->name('company_videos');
     Route::post('/company/videos/submit', [CompanyVideoController::class, 'videos_submit'])->name('company_videos_submit');
     Route::get('/company/videos/delete/{id}', [CompanyVideoController::class, 'videos_delete'])->name('company_videos_delete');
+
+    Route::get('/company/create-job', [CompanyJobController::class, 'jobs_create'])->name('company_jobs_create');
+    Route::post('/company/create-job-submit', [CompanyJobController::class, 'jobs_create_submit'])->name('company_jobs_create_submit');
+
+    Route::get('/company/jobs', [CompanyJobController::class, 'jobs'])->name('company_jobs');
+    Route::get('/company/job-edit/{id}', [CompanyJobController::class, 'jobs_edit'])->name('company_jobs_edit');
+    Route::post('/company/job-update/{id}', [CompanyJobController::class, 'jobs_update'])->name('company_jobs_update');
+    Route::get('/company/job-delete/{id}', [CompanyJobController::class, 'jobs_delete'])->name('company_jobs_delete');
 });
