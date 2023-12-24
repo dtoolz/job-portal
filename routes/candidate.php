@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Candidate\CandidateController;
+use App\Http\Controllers\Candidate\CandidateProfileManagementController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -19,5 +20,11 @@ Route::post('reset-password/candidate/submit', [ForgotPasswordController::class,
 Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/dashboard', [CandidateController::class, 'dashboard'])->name('candidate_dashboard');
     Route::get('/candidate/logout', [LoginController::class, 'candidate_logout'])->name('candidate_logout');
-});
+
+    Route::get('/candidate/edit-profile', [CandidateProfileManagementController::class, 'edit_profile'])->name('candidate_edit_profile');
+    Route::post('/candidate/edit-profile/update', [CandidateProfileManagementController::class, 'edit_profile_update'])->name('candidate_edit_profile_update');
+
+    Route::get('/candidate/edit-password', [CandidateProfileManagementController::class, 'edit_password'])->name('candidate_edit_password');
+    Route::post('/candidate/edit-password/update', [CandidateProfileManagementController::class, 'edit_password_update'])->name('candidate_edit_password_update');
+}); 
 
