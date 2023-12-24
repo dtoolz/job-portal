@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Candidate;
 
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
+use App\Models\CandidateSkill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -71,5 +72,57 @@ class CandidateProfileManagementController extends Controller
 
         return redirect()->back()->with('success', 'Password updated successfully.');
     }
+    
+    
+    public function skill()
+    {
+        $skills = CandidateSkill::where('candidate_id',Auth::guard('candidate')->user()->id)->get();
+        return view('candidate.skill', compact('skills'));
+    }
 
+    public function skill_create()
+    {
+        return view('candidate.skill_create');
+    }
+
+    public function skill_store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $obj = new CandidateSkill();
+        $obj->candidate_id = Auth::guard('candidate')->user()->id;
+        $obj->name = $request->name;
+        $obj->save();
+
+        return redirect()->route('candidate_skill_index')->with('success', 'Created successfully.');
+    }
+
+    public function skill_edit($id)
+    {
+        $skill_single = CandidateSKill::where('id',$id)->first();
+
+        return view('candidate.skill_edit', compact('skill_single'));
+    }
+
+    public function skill_update(Request $request, $id)
+    {
+        $obj = CandidateSkill::where('id',$id)->first();
+
+        $request->validate([
+            'name' => 'required',
+        ]);
+        
+        $obj->name = $request->name;
+        $obj->update();
+
+        return redirect()->route('candidate_skill_index')->with('success', 'Updated successfully.');
+    }
+
+    public function skill_delete($id)
+    {
+        CandidateSkill::where('id',$id)->delete();
+        return redirect()->route('candidate_skill_index')->with('success', 'Deleted successfully.');
+    }
 }

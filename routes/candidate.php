@@ -3,6 +3,7 @@
 use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\Candidate\CandidateProfileManagementController;
+use App\Http\Controllers\Candidate\CandidateWorkExperienceController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -34,5 +35,20 @@ Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/education/edit/{id}', [CandidateEducationController::class, 'education_edit'])->name('candidate_education_edit');
     Route::post('/candidate/education/update/{id}', [CandidateEducationController::class, 'education_update'])->name('candidate_education_update');
     Route::get('/candidate/education/delete/{id}', [CandidateEducationController::class, 'education_delete'])->name('candidate_education_delete');
+
+    
+    Route::get('/candidate/skill/index', [CandidateProfileManagementController::class, 'skill'])->name('candidate_skill_index');
+    Route::get('/candidate/skill/create', [CandidateProfileManagementController::class, 'skill_create'])->name('candidate_skill_create');
+    Route::post('/candidate/skill/store', [CandidateProfileManagementController::class, 'skill_store'])->name('candidate_skill_store');
+    Route::get('/candidate/skill/edit/{id}', [CandidateProfileManagementController::class, 'skill_edit'])->name('candidate_skill_edit');
+    Route::post('/candidate/skill/update/{id}', [CandidateProfileManagementController::class, 'skill_update'])->name('candidate_skill_update');
+    Route::get('/candidate/skill/delete/{id}', [CandidateProfileManagementController::class, 'skill_delete'])->name('candidate_skill_delete');
+
+    Route::get('/candidate/experience/index', [CandidateWorkExperienceController::class, 'experience'])->name('candidate_experience_index');
+    Route::get('/candidate/experience/create', [CandidateWorkExperienceController::class, 'experience_create'])->name('candidate_experience_create');
+    Route::post('/candidate/experience/store', [CandidateWorkExperienceController::class, 'experience_store'])->name('candidate_experience_store');
+    Route::get('/candidate/experience/edit/{id}', [CandidateWorkExperienceController::class, 'experience_edit'])->name('candidate_experience_edit');
+    Route::post('/candidate/experience/update/{id}', [CandidateWorkExperienceController::class, 'experience_update'])->name('candidate_experience_update');
+    Route::get('/candidate/experience/delete/{id}', [CandidateWorkExperienceController::class, 'experience_delete'])->name('candidate_experience_delete');
 }); 
 

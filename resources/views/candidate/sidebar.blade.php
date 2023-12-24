@@ -11,11 +11,11 @@
     <li class="list-group-item {{ Request::is('candidate/education/index') ? 'active' : '' }}">
         <a href="{{ route('candidate_education_index') }}">Education</a>
     </li>
-    <li class="list-group-item">
-        <a href="#">Skills</a>
+    <li class="list-group-item {{ Request::is('candidate/skill/index') ? 'active' : '' }}">
+        <a href="{{ route('candidate_skill_index') }}">Skills</a>
     </li>
-    <li class="list-group-item">
-        <a href="#">Work Experience</a>
+    <li class="list-group-item {{ Request::is('candidate/experience/index') ? 'active' : '' }}">
+        <a href="{{ route('candidate_experience_index') }}">Work Experience</a>
     </li>
     <li class="list-group-item">
         <a href="#">Awards</a>
