@@ -17,7 +17,7 @@ class CompanyPhotoController extends Controller
         $order_data = Order::where('company_id',Auth::guard('company')->user()->id)->where('currently_active',1)->first();
 
         if(!$order_data) {
-            return redirect()->back()->with('error', 'subscribe access this section');
+            return redirect()->back()->with('error', 'subscribe to access this section');
         }
 
         // Check if company package allows photo uploads
@@ -43,7 +43,7 @@ class CompanyPhotoController extends Controller
         }
 
         if(date('Y-m-d') > $order_data->expire_date) {
-            return redirect()->back()->with('error', 'Your package is expired!');
+            return redirect()->back()->with('error', 'Your package has expired!');
         }
 
         $request->validate([

@@ -4,6 +4,7 @@ use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyPaymentController;
 use App\Http\Controllers\Company\CompanyPhotoController;
 use App\Http\Controllers\Company\CompanyProfileManagementController;
+use App\Http\Controllers\Company\CompanyVideoController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -39,4 +40,8 @@ Route::middleware(['company:company'])->group(function () {
     Route::get('/company/photos', [CompanyPhotoController::class, 'photos'])->name('company_photos');
     Route::post('/company/photos/submit', [CompanyPhotoController::class, 'photos_submit'])->name('company_photos_submit');
     Route::get('/company/photos/delete/{id}', [CompanyPhotoController::class, 'photos_delete'])->name('company_photos_delete');
+
+    Route::get('/company/videos', [CompanyVideoController::class, 'videos'])->name('company_videos');
+    Route::post('/company/videos/submit', [CompanyVideoController::class, 'videos_submit'])->name('company_videos_submit');
+    Route::get('/company/videos/delete/{id}', [CompanyVideoController::class, 'videos_delete'])->name('company_videos_delete');
 });
