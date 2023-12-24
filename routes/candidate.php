@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Candidate\CandidateController;
+use App\Http\Controllers\Candidate\CandidateEducationController;
 use App\Http\Controllers\Candidate\CandidateProfileManagementController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
@@ -26,5 +27,12 @@ Route::middleware(['candidate:candidate'])->group(function () {
 
     Route::get('/candidate/edit-password', [CandidateProfileManagementController::class, 'edit_password'])->name('candidate_edit_password');
     Route::post('/candidate/edit-password/update', [CandidateProfileManagementController::class, 'edit_password_update'])->name('candidate_edit_password_update');
+
+    Route::get('/candidate/education/index', [CandidateEducationController::class, 'education'])->name('candidate_education_index');
+    Route::get('/candidate/education/create', [CandidateEducationController::class, 'education_create'])->name('candidate_education_create');
+    Route::post('/candidate/education/store', [CandidateEducationController::class, 'education_store'])->name('candidate_education_store');
+    Route::get('/candidate/education/edit/{id}', [CandidateEducationController::class, 'education_edit'])->name('candidate_education_edit');
+    Route::post('/candidate/education/update/{id}', [CandidateEducationController::class, 'education_update'])->name('candidate_education_update');
+    Route::get('/candidate/education/delete/{id}', [CandidateEducationController::class, 'education_delete'])->name('candidate_education_delete');
 }); 
 
