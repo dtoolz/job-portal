@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\JobListingController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\FaqController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -36,4 +37,8 @@ Route::post('contact/submit', [ContactController::class, 'submit'])->name('conta
 Route::get('pricing', [PricingController::class, 'index'])->name('pricing');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('create-account', [SignupController::class, 'index'])->name('signup');
+
+Route::get('job-listing', [JobListingController::class, 'index'])->name('job_listing');
+Route::get('job-detail/{id}', [JobListingController::class, 'detail'])->name('job');
+Route::post('job-enquiry/email', [JobListingController::class, 'send_email'])->name('job_enquiry_send_email');
 
