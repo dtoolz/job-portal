@@ -125,7 +125,7 @@
                                 <label for="">Founded On *</label>
                                 <div class="form-group">
                                     <select name="founded_on" class="form-control select2">
-                                        @for ($i = 1900; $i <= date('Y'); $i++)
+                                        @for ($i = 1600; $i <= date('Y'); $i++)
                                             <option value="{{ $i }}"
                                                 @if ($i == Auth::guard('company')->user()->founded_on) selected @endif>{{ $i }}
                                             </option>
