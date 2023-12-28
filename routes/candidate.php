@@ -70,5 +70,10 @@ Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/bookmark-add/{id}', [CandidateController::class, 'bookmark_add'])->name('candidate_bookmark_add');
     Route::get('/candidate/bookmark', [CandidateController::class, 'bookmark_index'])->name('candidate_bookmark_index');
     Route::get('/candidate/bookmark-delete/{id}', [CandidateController::class, 'bookmark_delete'])->name('candidate_bookmark_delete');
+
+    Route::get('/candidate/apply/{id}', [CandidateController::class, 'apply'])->name('candidate_apply');
+    Route::post('/candidate/apply-submit/{id}', [CandidateController::class, 'apply_submit'])->name('candidate_apply_submit');
+    Route::get('/candidate/applications', [CandidateController::class, 'applications'])->name('candidate_applications');
+    
 }); 
 

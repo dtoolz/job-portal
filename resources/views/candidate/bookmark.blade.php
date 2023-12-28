@@ -30,12 +30,14 @@
                                     <tr>
                                         <th>SL</th>
                                         <th>Job Title</th>
+                                        <th>Company</th>
                                         <th class="w-150">Detail</th>
                                     </tr>
                                     @foreach ($bookmarked_jobs as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->rJob->title }}</td>
+                                            <td>{{ $item->rJob->rCompany->company_name }}</td>
                                             <td>
                                                 <a href="{{ route('job', $item->job_id) }}"
                                                     class="btn btn-primary btn-sm">Detail</a>
