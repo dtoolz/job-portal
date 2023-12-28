@@ -20,9 +20,8 @@
     <li class="list-group-item {{ Request::is('company/videos') ? 'active' : '' }}">
         <a href="{{ route('company_videos') }}">Videos</a>
     </li>
-
-    <li class="list-group-item">
-        <a href="#">Candidate Applications</a>
+    <li class="list-group-item {{ Request::is('company/candidate-applications') || Request::is('company/applicants/*') || Request::is('company/applicant-resume/*') ? 'active' : '' }}">
+        <a href="{{ route('company_candidate_applications') }}">Candidate Applications</a>
     </li>
     <li class="list-group-item {{ Request::is('company/edit-profile') ? 'active' : '' }}">
         <a href="{{ route('company_edit_profile') }}">Edit Profile</a>

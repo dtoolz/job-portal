@@ -32,11 +32,21 @@
                                     <i class="fas fa-columns"></i> Dashboard
                                 </a>
                             </li>
+                            <li class="menu">
+                                <a class="text-secondary" href="{{ route('company_logout') }}">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                               </a>
+                            </li>
                         @elseif(Auth::guard('candidate')->check())
                             <li class="menu">
                                 <a class="text-success" href="{{ route('candidate_dashboard') }}">
                                     <i class="fas fa-columns"></i> Dashboard
                                 </a>
+                            </li>
+                            <li class="menu">
+                                <a class="text-secondary" href="{{ route('candidate_logout') }}">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                               </a>
                             </li>
                         @else
                             <li class="menu">
