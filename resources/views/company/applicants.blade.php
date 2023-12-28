@@ -68,7 +68,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <a href="{{ route('company_applicant_resume',$item->candidate_id) }}" class="badge bg-primary text-white" target="_blank"> see profile</a>
+                                    <a href="{{ route('company_applicant_resume',$item->candidate_id) }}" class="btn btn-primary btn-sm text-white" target="_blank"> see profile</a>
                                 </td>
                                 <td>
                                     <a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $i }}">Cover Letter</a>

@@ -13,6 +13,7 @@ use App\Models\JobExperience;
 use App\Models\JobGender;
 use App\Models\JobSalaryRange;
 use App\Mail\Sitemail;
+use App\Models\Advertisement;
 use App\Models\OtherPageItem;
 
 class JobListingController extends Controller
@@ -67,9 +68,11 @@ class JobListingController extends Controller
        
         $jobs = $jobs->paginate(9);
 
+        $advertisement_data = Advertisement::where('id',1)->first();
+
         $other_page_item = OtherPageItem::where('id',1)->first();
 
-        return view('frontend.job_listing', compact('jobs','job_categories','job_locations','job_types','job_experiences','job_genders','job_salary_ranges','form_title','form_category','form_location','form_type','form_experience','form_gender','form_salary_range','other_page_item'));
+        return view('frontend.job_listing', compact('jobs','job_categories','job_locations','job_types','job_experiences','job_genders','job_salary_ranges','form_title','form_category','form_location','form_type','form_experience','form_gender','form_salary_range','other_page_item', 'advertisement_data'));
     }
 
     public function detail($id)

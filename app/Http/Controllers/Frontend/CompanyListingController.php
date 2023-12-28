@@ -14,6 +14,7 @@ use App\Models\CompanyPhoto;
 use App\Models\CompanyVideo;
 use App\Models\Order;
 use App\Mail\Sitemail;
+use App\Models\Advertisement;
 use App\Models\OtherPageItem;
 
 class CompanyListingController extends Controller
@@ -55,9 +56,11 @@ class CompanyListingController extends Controller
        
         $companies = $companies->paginate(9);
 
+        $advertisement_data = Advertisement::where('id',1)->first();
+
         $other_page_item = OtherPageItem::where('id',1)->first();
 
-        return view('frontend.company_listing', compact('companies','company_industries','company_locations','company_sizes','form_name','form_industry','form_location','form_size','form_founded','other_page_item'));
+        return view('frontend.company_listing', compact('companies','company_industries','company_locations','company_sizes','form_name','form_industry','form_location','form_size','form_founded','other_page_item', 'advertisement_data'));
     }
 
     public function detail($id)

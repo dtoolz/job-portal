@@ -8,7 +8,7 @@
 @endsection
 
 @section('main_content')
-<div class="page-top" style="background-image: url('{{ asset('uploads/banner.jpg') }}')">
+    <div class="page-top" style="background-image: url('{{ asset('uploads/banner.jpg') }}')">
         <div class="bg"></div>
         <div class="container">
             <div class="row">
@@ -83,6 +83,19 @@
                             </div>
 
                         </form>
+
+                        @if ($advertisement_data->company_listing_ad_status == 'Show')
+                            <div class="advertisement">
+                                @if ($advertisement_data->company_listing_ad_url == null)
+                                    <img src="{{ asset('uploads/' . $advertisement_data->company_listing_ad) }}"
+                                        alt="">
+                                @else
+                                    <a href="{{ $advertisement_data->company_listing_ad_url }}" target="_blank"><img
+                                            src="{{ asset('uploads/' . $advertisement_data->company_listing_ad) }}"
+                                            alt=""></a>
+                                @endif
+                            </div>
+                        @endif
 
                     </div>
                 </div>

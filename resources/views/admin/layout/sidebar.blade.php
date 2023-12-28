@@ -159,6 +159,12 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/advertisement') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_advertisement') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Advertisement">
+                    <i class="fas fa-ad"></i> <span>Advertisement</span></a>
+            </li>
+
         </ul>
     </aside>
 </div>
