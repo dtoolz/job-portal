@@ -6,6 +6,7 @@ use App\Http\Controllers\Company\CompanyPaymentController;
 use App\Http\Controllers\Company\CompanyPhotoController;
 use App\Http\Controllers\Company\CompanyProfileManagementController;
 use App\Http\Controllers\Company\CompanyVideoController;
+use App\Http\Controllers\Frontend\CompanyListingController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\SignupController;
@@ -19,6 +20,10 @@ Route::get('forgot-password/company', [ForgotPasswordController::class, 'company
 Route::post('forgot-password/company/submit', [ForgotPasswordController::class, 'company_forgot_password_submit'])->name('company_forgot_password_submit');
 Route::get('reset-password/company/{token}/{email}', [ForgotPasswordController::class, 'company_reset_password'])->name('company_reset_password');
 Route::post('reset-password/company/submit', [ForgotPasswordController::class, 'company_reset_password_submit'])->name('company_reset_password_submit');
+
+Route::get('company-listing', [CompanyListingController::class, 'index'])->name('company_listing');
+Route::get('company-detail/{id}', [CompanyListingController::class, 'detail'])->name('company');
+Route::post('company-enquiry/email', [CompanyListingController::class, 'send_email'])->name('company_enquiry_send_email');
 
 /* Company Middleware */
 Route::middleware(['company:company'])->group(function () {

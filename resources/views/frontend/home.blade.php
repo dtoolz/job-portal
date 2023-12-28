@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <select name="" class="form-select select2">
+                                                <select name="category" class="form-select select2">
                                                     <option value="">
                                                         {{ $home_page_content_data->job_category }}
                                                     </option>
