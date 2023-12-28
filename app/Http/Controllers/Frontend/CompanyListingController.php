@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactCompanyMailRequest;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Company;
@@ -87,13 +88,8 @@ class CompanyListingController extends Controller
         return view('frontend.company', compact('company_single','company_photos','company_videos','jobs','other_page_item'));
     }
 
-    public function send_email(Request $request)
+    public function send_email(ContactCompanyMailRequest $request)
     {
-        $request->validate([
-            'visitor_name' => 'required',
-            'visitor_email' => 'required|email',
-            'visitor_message' => 'required'
-        ]);
 
         $subject = 'Contact Form Message';
         $message = 'Visitor Information: <br>';

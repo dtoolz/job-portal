@@ -5,8 +5,8 @@
     <li class="list-group-item">
         <a href="#">Applied Jobs</a>
     </li>
-    <li class="list-group-item">
-        <a href="#">Bookmarked Jobs</a>
+    <li class="list-group-item {{ Request::is('candidate/bookmark/*') ? 'active' : '' }}">
+        <a href="{{ route('candidate_bookmark_index') }}">Bookmarked Jobs</a>
     </li>
     <li class="list-group-item {{ Request::is('candidate/education/*') ? 'active' : '' }}">
         <a href="{{ route('candidate_education_index') }}">Education</a>

@@ -56,11 +56,16 @@
                                 @endif
                             </div>
 
-
-                            <div class="apply">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
-                                <a href="#" class="btn btn-primary save-job">Bookmark</a>
-                            </div>
+                            @if (!Auth::guard('company')->check())
+                                <div class="apply">
+                                    @if (date('Y-m-d') <= $job_single->deadline)
+                                        <a href="#"
+                                            class="btn btn-primary">Apply Now</a>
+                                        <a href="{{ route('candidate_bookmark_add', $job_single->id) }}"
+                                            class="btn btn-primary save-job">Bookmark</a>
+                                    @endif
+                                </div>
+                            @endif
 
 
                         </div>

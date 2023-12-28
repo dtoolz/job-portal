@@ -177,7 +177,26 @@
                                                             </div>
                                                         @endif
                                                     </div>
-
+                                                    @if (!Auth::guard('company')->check())
+                                                        <div class="bookmark">
+                                                            @if (Auth::guard('candidate')->check())
+                                                                @php
+                                                                    $count = \App\Models\CandidateBookmark::where(['candidate_id' => Auth::guard('candidate')->user()->id, 'job_id' => $item->id])->count();
+                                                                    if ($count > 0) {
+                                                                        $bookmark_status = 'active';
+                                                                    } else {
+                                                                        $bookmark_status = '';
+                                                                    }
+                                                                @endphp
+                                                            @else
+                                                                @php $bookmark_status = ''; @endphp
+                                                            @endif
+                                                            @if (date('Y-m-d') <= $item->deadline)
+                                                                <a href="{{ route('candidate_bookmark_add', $item->id) }}"><i
+                                                                        class="fas fa-bookmark {{ $bookmark_status }}"></i></a>
+                                                            @endif
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
