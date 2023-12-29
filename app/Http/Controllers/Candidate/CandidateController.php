@@ -13,7 +13,13 @@ class CandidateController extends Controller
 {
     public function dashboard()
     {
-        return view('candidate.dashboard');
+        $total_applied_jobs = CandidateApplication::where(['candidate_id' => Auth::guard('candidate')->user()->id, 'status' => 'Applied' ])->count();
+
+        $total_rejected_jobs = CandidateApplication::where(['candidate_id' => Auth::guard('candidate')->user()->id, 'status' => 'Rejected' ])->count();
+
+        $total_approved_jobs = CandidateApplication::where(['candidate_id' => Auth::guard('candidate')->user()->id, 'status' => 'Approved' ])->count();
+
+        return view('candidate.dashboard',compact('total_applied_jobs','total_rejected_jobs','total_approved_jobs'));
     }
 
     public function bookmark_add($id)
