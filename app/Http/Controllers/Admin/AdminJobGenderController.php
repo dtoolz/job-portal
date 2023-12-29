@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Models\JobGender;
 
@@ -56,6 +57,11 @@ class AdminJobGenderController extends Controller
 
     public function delete($id)
     {
+        $check = Job::where('job_gender_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
+
         JobGender::where('id',$id)->delete();
         return redirect()->route('admin_job_gender_index')->with('success', 'Deleted Successfully.');
     }

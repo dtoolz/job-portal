@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminPricingPackageRequest;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\PricingPackage;
 
@@ -63,6 +64,10 @@ class AdminPackageController extends Controller
 
     public function delete($id)
     {
+        $check = Order::where('package_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
         PricingPackage::where('id',$id)->delete();
         return redirect()->route('admin_package')->with('success', 'Deleted Successfully.');
     }

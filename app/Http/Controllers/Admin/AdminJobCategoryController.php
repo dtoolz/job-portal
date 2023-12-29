@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
@@ -59,6 +60,11 @@ class AdminJobCategoryController extends Controller
 
     public function delete($id)
     {
+        $check = Job::where('job_category_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
+
         JobCategory::where('id',$id)->delete();
         return redirect()->route('admin_job_category_index')->with('success', 'deleted successfully.');
     }

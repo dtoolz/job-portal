@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Models\JobType;
 
@@ -55,6 +56,10 @@ class AdminJobTypeController extends Controller
 
     public function delete($id)
     {
+        $check = Job::where('job_type_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
         JobType::where('id',$id)->delete();
         return redirect()->route('admin_job_type_index')->with('success', 'Deleted Successfully.');
     }

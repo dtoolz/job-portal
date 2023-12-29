@@ -55,6 +55,11 @@ class AdminJobLocationController extends Controller
 
     public function delete($id)
     {
+        $check = Job::where('job_location_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
+
         JobLocation::where('id',$id)->delete();
         return redirect()->route('admin_job_location_index')->with('success', 'Deleted successfully.');
     }

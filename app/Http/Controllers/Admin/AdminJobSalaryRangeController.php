@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Models\JobSalaryRange;
 
@@ -56,6 +57,10 @@ class AdminJobSalaryRangeController extends Controller
 
     public function delete($id)
     {
+        $check = Job::where('job_salary_range_id',$id)->count();
+        if($check>0) {
+            return redirect()->back()->with('error', 'item is still active at other sections');
+        }
         JobSalaryRange::where('id',$id)->delete();
         return redirect()->route('admin_job_salary_range_index')->with('success', 'Deleted Successfully.');
     }
