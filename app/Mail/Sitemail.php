@@ -29,7 +29,7 @@ class Sitemail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Sitemail',
+            subject: $this->subject,
         );
     }
 

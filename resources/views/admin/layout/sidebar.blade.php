@@ -102,6 +102,14 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown {{ Request::is('admin/all-subscribers')||Request::is('admin/subscribers-send-email') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bullhorn"></i><span>Subscriber Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/all-subscribers') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_all_subscribers') }}"><i class="fas fa-reply-all"></i> All Subscribers</a></li>
+                    <li class="{{ Request::is('admin/subscribers-send-email') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_subscribers_send_email') }}"><i class="fas fa-envelope"></i> Send Email to Subscribers</a></li>
+                </ul>
+            </li>
+
             <li
                 class="nav-item dropdown {{ Request::is('admin/company-location/*') ||
                 Request::is('admin/company-industry/*') ||
