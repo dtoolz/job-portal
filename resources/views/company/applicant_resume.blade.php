@@ -42,7 +42,7 @@
                         
                         @if($candidate_single->designation!=null)
                         <tr>
-                            <th>Designation:</th>
+                            <th>Profession:</th>
                             <td>{{ $candidate_single->designation }}</td>
                         </tr>
                         @endif

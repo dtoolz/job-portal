@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Sitemail;
 use App\Models\Candidate;
 use App\Models\CandidateApplication;
 use App\Models\CandidateAward;
@@ -62,6 +63,18 @@ class CompanyController extends Controller
         $obj = CandidateApplication::with('rCandidate')->where(['candidate_id' => $request->candidate_id, 'job_id' => $request->job_id ])->first();
         $obj->status = $request->status;
         $obj->update();
+
+        $candidate_email = $obj->rCandidate->email;
+
+        if($request->status == 'Approved') {
+            // Sending email to candidates
+            $detail_link = route('candidate_applications');
+            $subject = 'Congratulations! your application is approved';
+            $message = 'Please check for more information: <br>';
+            $message .= '<a href="'.$detail_link.'">Click here to see the detail</a>';
+
+            \Mail::to($candidate_email)->send(new Sitemail($subject,$message));
+        }
 
         return redirect()->back()->with('success', 'Status changed successfully!');
     }

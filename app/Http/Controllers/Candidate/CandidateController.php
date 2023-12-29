@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Candidate;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Sitemail;
 use App\Models\CandidateApplication;
 use App\Models\CandidateBookmark;
 use App\Models\Job;
@@ -79,6 +80,17 @@ class CandidateController extends Controller
         $obj->cover_letter = $request->cover_letter;
         $obj->status = 'Applied';
         $obj->save();
+
+        
+        $job_info = Job::with('rCompany')->where('id',$id)->first();
+        $company_email = $job_info->rCompany->email;
+        // Sending email to company
+        $applicants_list_url = route('company_applicants',$id);
+        $subject = 'A candidate applied to a job';
+        $message = 'Please check the application: ';
+        $message .= '<a href="'.$applicants_list_url.'">Click here to see applicants list for this job</a>';
+
+        \Mail::to($company_email)->send(new Sitemail($subject,$message));
 
         return redirect()->route('job',$id)->with('success', 'Application sent successfully!');
     }
