@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Frontend\PricingController;
 use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Frontend\SignupController;
+use App\Http\Controllers\Frontend\SubscriberController;
 use App\Http\Controllers\Frontend\TermsController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,7 @@ Route::get('create-account', [SignupController::class, 'index'])->name('signup')
 Route::get('job-listing', [JobListingController::class, 'index'])->name('job_listing');
 Route::get('job-detail/{id}', [JobListingController::class, 'detail'])->name('job');
 Route::post('job-enquiry/email', [JobListingController::class, 'send_email'])->name('job_enquiry_send_email');
+
+Route::post('subscriber/send-email', [SubscriberController::class, 'send_email'])->name('subscriber_send_email');
+Route::get('subscriber/verify/{email}/{token}', [SubscriberController::class, 'verify'])->name('subscriber_email_verify');
 

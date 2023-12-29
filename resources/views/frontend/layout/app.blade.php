@@ -35,7 +35,7 @@
                             <li class="menu">
                                 <a class="text-secondary" href="{{ route('company_logout') }}">
                                     <i class="fas fa-sign-out-alt"></i> Logout
-                               </a>
+                                </a>
                             </li>
                         @elseif(Auth::guard('candidate')->check())
                             <li class="menu">
@@ -46,7 +46,7 @@
                             <li class="menu">
                                 <a class="text-secondary" href="{{ route('candidate_logout') }}">
                                     <i class="fas fa-sign-out-alt"></i> Logout
-                               </a>
+                                </a>
                             </li>
                         @else
                             <li class="menu">
@@ -111,7 +111,7 @@
                             <div class="left">
                                 <i class="fas fa-phone"></i>
                             </div>
-                            <div class="right">contact@arefindev.com</div>
+                            <div class="right">contact@jobportal.com</div>
                         </div>
                         <div class="list-item">
                             <div class="left">
@@ -146,12 +146,14 @@
                             To get the latest news from our website, please
                             subscribe us here:
                         </p>
-                        <form action="" method="post">
+                        <form action="{{ route('subscriber_send_email') }}" method="post" class="form_subscribe_ajax">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" />
+                                <input type="text" name="email" class="form-control" placeholder="Email">
+                                <span class="text-danger error-text email_error"></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Subscribe Now" />
+                                <button type="submit" class="btn bg-website text-white mt-1 btn-md sub-button">Subscribe</button>
                             </div>
                         </form>
                     </div>
@@ -218,6 +220,53 @@
             });
         </script>
     @endif
+
+    <script>
+        (function($) {
+            $(".form_subscribe_ajax").on('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                $.ajax({
+                    url: $(form).attr('action'),
+                    method: $(form).attr('method'),
+                    data: new FormData(form),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(form).find('span.error-text').text('');
+                        $('.sub-button').text('Loading...');
+                        $('.sub-button').attr('disabled', true);
+                    },
+                    success: function(data) {
+                        if (data.code == 0) {
+                            $.each(data.error_message, function(prefix, val) {
+                                $(form).find('span.' + prefix + '_error').text(val[0]);
+                            });
+                            $('.sub-button').text('Subscribe');
+                            $('.sub-button').attr('disabled', false);
+                        } else if (data.code == 2) {
+                            $.each(data.error_message_2, function(prefix, val) {
+                                $('.email_error').text(data.error_message_2);
+                            });
+                            $('.sub-button').text('Subscribe');
+                            $('.sub-button').attr('disabled', false);
+                        } else if (data.code == 1) {
+                            $(form)[0].reset();
+                            iziToast.success({
+                                title: '',
+                                position: 'topRight',
+                                message: data.success_message,
+                            });
+                            $('.sub-button').text('Subscribe');
+                            $('.sub-button').attr('disabled', false);
+                        }
+
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
 </body>
 
 </html>
