@@ -17,9 +17,10 @@
                 </a>
             </li>
 
-            <li class=""><a data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Setting"
-                    class="nav-link" href="setting.html"><i class="fas fa-wrench"></i> <span>Admin Settings</span></a>
-            </li>
+            <li class="{{ Request::is('admin/settings') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_settings') }}" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Settings">
+                    <i class="fas fa-wrench"></i><span>Settings</span></a></li>
 
             <li
                 class="nav-item dropdown {{ Request::is('admin/home-page-content') ||
@@ -102,11 +103,17 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown {{ Request::is('admin/all-subscribers')||Request::is('admin/subscribers-send-email') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bullhorn"></i><span>Subscriber Section</span></a>
+            <li
+                class="nav-item dropdown {{ Request::is('admin/all-subscribers') || Request::is('admin/subscribers-send-email') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bullhorn"></i><span>Subscriber
+                        Section</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('admin/all-subscribers') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_all_subscribers') }}"><i class="fas fa-reply-all"></i> All Subscribers</a></li>
-                    <li class="{{ Request::is('admin/subscribers-send-email') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_subscribers_send_email') }}"><i class="fas fa-envelope"></i> Send Email to Subscribers</a></li>
+                    <li class="{{ Request::is('admin/all-subscribers') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_all_subscribers') }}"><i class="fas fa-reply-all"></i> All
+                            Subscribers</a></li>
+                    <li class="{{ Request::is('admin/subscribers-send-email') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_subscribers_send_email') }}"><i class="fas fa-envelope"></i> Send
+                            Email to Subscribers</a></li>
                 </ul>
             </li>
 
