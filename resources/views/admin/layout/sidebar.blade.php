@@ -118,6 +118,19 @@
             </li>
 
             <li
+                class="{{ Request::is('admin/companies') ||
+                Request::is('admin/companies-detail/*') ||
+                Request::is('admin/companies-jobs/*') ||
+                Request::is('admin/companies-applicants/*') ||
+                Request::is('admin/companies-applicant-resume/*')
+                    ? 'active'
+                    : '' }}">
+                <a class="nav-link" href="{{ route('admin_companies') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Company Profile">
+                    <i class="fas fa-building"></i> <span>Company Profile</span></a>
+            </li>
+
+            <li
                 class="nav-item dropdown {{ Request::is('admin/company-location/*') ||
                 Request::is('admin/company-industry/*') ||
                 Request::is('admin/company-size/*')
