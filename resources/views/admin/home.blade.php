@@ -11,10 +11,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total News Categories</h4>
+                        <h4>Total Companies</h4>
                     </div>
                     <div class="card-body">
-                        12
+                        {{ $total_companies }}
                     </div>
                 </div>
             </div>
@@ -26,10 +26,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total News</h4>
+                        <h4>Total Candidates</h4>
                     </div>
                     <div class="card-body">
-                        122
+                        {{ $total_candidates }}
                     </div>
                 </div>
             </div>
@@ -41,10 +41,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Users</h4>
+                        <h4>Total Jobs</h4>
                     </div>
                     <div class="card-body">
-                        45
+                        {{ $total_jobs }}
                     </div>
                 </div>
             </div>
