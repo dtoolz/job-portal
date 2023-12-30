@@ -131,6 +131,16 @@
             </li>
 
             <li
+                class="{{ Request::is('admin/candidates') ||
+                Request::is('admin/candidates-detail/*') ||
+                Request::is('admin/candidates-applied-jobs/*')
+                    ? 'active'
+                    : '' }}">
+                <a class="nav-link" href="{{ route('admin_candidates') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Candidate Profile">
+                    <i class="fas fa-user"></i> <span>Candidate Profile</span></a></li>
+
+            <li
                 class="nav-item dropdown {{ Request::is('admin/company-location/*') ||
                 Request::is('admin/company-industry/*') ||
                 Request::is('admin/company-size/*')
